@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>시험공부 체크</title>
+  <meta name="theme-color" content="#12212b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="시험공부">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+
+    <!-- 메인: 과목 목록 -->
+    <section id="home">
+      <header class="home-head">
+        <h1>시험공부 체크</h1>
+        <div class="overall">
+          <div class="overall-row">
+            <span>전체 진행률</span>
+            <strong><span id="overall-pct">0</span>%</strong>
+          </div>
+          <div class="bar"><div class="fill" id="overall-fill"></div></div>
+          <p class="sub" id="overall-count">0 / 0 완료</p>
+        </div>
+      </header>
+      <ul class="subjects" id="subject-list"></ul>
+    </section>
+
+    <!-- 과목 페이지: 체크리스트 -->
+    <section id="detail" hidden>
+      <header class="detail-head">
+        <a href="#" class="back">‹ 전체 과목</a>
+        <div class="title-row">
+          <h2 id="detail-title"></h2>
+          <div class="big-pct"><span id="detail-pct">0</span>%</div>
+        </div>
+        <div class="bar big" role="progressbar" aria-label="진행률"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="detail-bar">
+          <div class="fill" id="detail-fill"></div>
+        </div>
+        <p class="sub" id="detail-count">0 / 0 완료</p>
+      </header>
+
+      <form id="add-form" autocomplete="off">
+        <input type="text" id="add-input" placeholder="공부할 항목 추가 (예: 3장 연습문제)" maxlength="80" enterkeyhint="done">
+        <button type="submit">추가</button>
+      </form>
+
+      <ul class="items" id="item-list"></ul>
+      <button type="button" id="clear-done" hidden>완료한 항목 모두 지우기</button>
+    </section>
+
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
